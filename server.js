@@ -1,17 +1,23 @@
 /* ******************************************
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
- * Note: this file can typically have one of three different names:
- * index.js, app.js, or server.js.The reason I have choosen for us
- * to use server.js is that I think it adds clarity. 
  *******************************************/
+
 /* ***********************
  * Require Statements
  *************************/
+const expressLayouts = require("express-ejs-layouts")
 const express = require("express")
 const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
+
+/* ***********************
+ * View Engine and Templates
+ *************************/
+app.set("view engine", "ejs")
+app.use(expressLayouts)
+app.set("layout", "./layouts/layout") // not at views root
 
 /* ***********************
  * Routes
