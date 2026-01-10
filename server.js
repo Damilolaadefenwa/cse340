@@ -1,6 +1,9 @@
 /* ******************************************
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
+ * Note: this file can typically have one of three different names:
+ * index.js, app.js, or server.js.The reason I have choosen for us
+ * to use server.js is that I think it adds clarity. 
  *******************************************/
 /* ***********************
  * Require Statements
