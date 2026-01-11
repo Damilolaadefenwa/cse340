@@ -8,9 +8,10 @@
 /* Mobile First Approach */
 /* Global Styles */
 :root {
-  --accent-color: #00b1d8;
+  --pop-color: #00b1d8;
+  --accent-color:#005e70;
   --bg-light: #eeeeee;
-  --text-dark: #333;
+  --text-dark: #000000;
   --myfont: "Merriweather Sans", sans-serif;
 }
 
@@ -19,17 +20,15 @@ body {
   background-image: url('/images/site/checkerboard.jpg');
   background-repeat: repeat;
   font-family: var(--myfont);
-  /* font-family: Arial, Helvetica, sans-serif; */
   margin: 0;
 }
 
-/* The White Container Part*/
+/* The main tag*/
 #wrapper {
   background-color: white;
   max-width: 900px;
   margin: 20px auto;
   border: 5px solid #00b1d8;
-  /* Cyan border */
   padding: 20px;
 }
 
@@ -51,20 +50,31 @@ body {
 }
 
 /* The Navigation - Black bar */
+
 #nav-list {
-  background-color: var(--text-dark);
-  display: flex;
-  justify-content: space-around;
+  background-color: #333;
   list-style: none;
   padding: 0;
   margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#nav-list li {
+  flex: 1;
+  /*Forcing item to take up equal space and shrink to fit */
+  text-align: center;
 }
 
 #nav-list li a {
   color: white;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 15px 2px;
   display: block;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  /* Preventing the text from wrapping to a second line */
 }
 
 /* --- The HERO SECTION Part--- */
@@ -88,15 +98,25 @@ body {
 }
 
 .cta-button {
-  background-color: var(--accent-color);
+  background-color: var(--pop-color);
   color: var(--text-dark);
   text-decoration: none;
-  padding: 10px 25px;
-  font-weight: bold;
-  border: 1px solid black;
+  padding: 15px 30px;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  border: 1.5px solid black;
+  border-radius: 8px;
   display: inline-block;
   margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
+
+.cta-button:hover{
+  background-color:rgba(15, 205, 248, 0.50); 
+  transform: translateY(-2px); 
+}
+
 
 #hero-image img {
   max-width: 100%;
@@ -124,7 +144,7 @@ body {
 }
 
 .upgrade-item {
-  background-color: var(--accent-color);
+  background-color: var(--pop-color);
   padding: 10px;
   text-align: center;
 }
@@ -144,12 +164,17 @@ body {
 }
 
 .upgrade-item a {
-  color: blue;
+  color: #000024;
   font-size: 0.9rem;
 }
 
 /* --- LARGE SCREEN ADJUSTMENTS --- */
 @media screen and (min-width: 700px) {
+  #nav-list li a {
+    font-size: 1.1rem;
+    padding: 15px 10px;
+  }
+  
   #hero-container {
     flex-direction: row;
     justify-content: space-between;
