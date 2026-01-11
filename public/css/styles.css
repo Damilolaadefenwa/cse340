@@ -4,3 +4,167 @@
 *:after {
   box-sizing: border-box;
 }
+
+/* Mobile First Approach */
+/* Global Styles */
+:root {
+  --accent-color: #00b1d8;
+  --bg-light: #eeeeee;
+  --text-dark: #333;
+  --myfont: "Merriweather Sans", sans-serif;
+}
+
+
+body {
+  background-image: url('/images/site/checkerboard.jpg');
+  background-repeat: repeat;
+  font-family: var(--myfont);
+  /* font-family: Arial, Helvetica, sans-serif; */
+  margin: 0;
+}
+
+/* The White Container Part*/
+#wrapper {
+  background-color: white;
+  max-width: 900px;
+  margin: 20px auto;
+  border: 5px solid #00b1d8;
+  /* Cyan border */
+  padding: 20px;
+}
+
+/* The Header Part */
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#top-header a {
+  text-decoration: none;
+  color: var(--text-dark);
+}
+
+#tools a {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+/* The Navigation - Black bar */
+#nav-list {
+  background-color: var(--text-dark);
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#nav-list li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+}
+
+/* --- The HERO SECTION Part--- */
+#hero-container {
+  display: flex;
+  flex-direction: column;
+  /* Stacked for mobile */
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#hero-details {
+  color: var(--accent-color);
+  text-align: left;
+  width: 100%;
+}
+
+#hero-details h2 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 10px 25px;
+  font-weight: bold;
+  border: 1px solid black;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- The REVIEWS SECTION --- */
+#reviews {
+  margin-bottom: 30px;
+}
+
+#reviews ul {
+  padding-left: 20px;
+}
+
+#reviews li {
+  margin-bottom: 15px;
+}
+
+/* --- The UPGRADES SECTION --- */
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* 2 columns as seen in image */
+  gap: 20px;
+}
+
+.upgrade-item {
+  background-color: var(--accent-color);
+  /* The Cyan box background */
+  padding: 10px;
+  text-align: center;
+}
+
+.upgrade-item .img-box {
+  background-color: white;
+  /* White box for the image inside the cyan box */
+  border: 1px solid black;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.upgrade-item img {
+  max-height: 70px;
+}
+
+.upgrade-item a {
+  color: blue;
+  font-size: 0.9rem;
+}
+
+/* --- LARGE SCREEN ADJUSTMENTS --- */
+@media screen and (min-width: 700px) {
+  #hero-container {
+    flex-direction: row;
+    /* The text on left, car on right */
+    justify-content: space-between;
+  }
+
+  #hero-details {
+    width: 30%;
+    /* Limited text width so that the car fit next to it */
+  }
+
+  #hero-image {
+    width: 70%;
+  }
+}
