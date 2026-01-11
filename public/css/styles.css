@@ -71,7 +71,7 @@ body {
 #hero-container {
   display: flex;
   flex-direction: column;
-  /* Stacked for mobile */
+  /* Stacking for mobile */
   align-items: center;
   margin-bottom: 30px;
 }
@@ -120,20 +120,17 @@ body {
 .upgrade-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* 2 columns as seen in image */
   gap: 20px;
 }
 
 .upgrade-item {
   background-color: var(--accent-color);
-  /* The Cyan box background */
   padding: 10px;
   text-align: center;
 }
 
 .upgrade-item .img-box {
   background-color: white;
-  /* White box for the image inside the cyan box */
   border: 1px solid black;
   height: 80px;
   display: flex;
@@ -155,13 +152,11 @@ body {
 @media screen and (min-width: 700px) {
   #hero-container {
     flex-direction: row;
-    /* The text on left, car on right */
     justify-content: space-between;
   }
 
   #hero-details {
     width: 30%;
-    /* Limited text width so that the car fit next to it */
   }
 
   #hero-image {
