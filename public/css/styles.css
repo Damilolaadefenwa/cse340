@@ -32,6 +32,10 @@ body {
   padding: 20px;
 }
 
+h1{
+  font-size: large;
+}
+
 /* The Header Part */
 #top-header {
   display: flex;
@@ -46,7 +50,7 @@ body {
 
 #tools a {
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
 }
 
 /* The Navigation - Black bar */
@@ -77,37 +81,53 @@ body {
   /* Preventing the text from wrapping to a second line */
 }
 
+#nav-list li a:hover {
+  background-color: var(--pop-color);
+  color: black;
+}
+
 /* --- The HERO SECTION Part--- */
-#hero-container {
-  display: flex;
-  flex-direction: column;
-  /* Stacking for mobile */
-  align-items: center;
-  margin-bottom: 30px;
+
+#hero {
+  position: relative;
+  text-align: left;
+  padding-bottom: 100px;
+}
+
+#hero img {
+  width: 100%;
+  height: auto;
 }
 
 #hero-details {
+  background-color: rgba(255, 255, 255, 0.8);
   color: var(--accent-color);
+  padding: 10px;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
   text-align: left;
-  width: 100%;
+  max-width: 85%;
 }
 
 #hero-details h2 {
-  font-size: 2rem;
-  margin-bottom: 5px;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
 }
 
 .cta-button {
   background-color: var(--pop-color);
   color: var(--text-dark);
   text-decoration: none;
-  padding: 15px 30px;
+  padding: 8px 10px;
   font-weight: bolder;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   border: 1.5px solid black;
   border-radius: 8px;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
@@ -115,12 +135,6 @@ body {
 .cta-button:hover{
   background-color:rgba(15, 205, 248, 0.50); 
   transform: translateY(-2px); 
-}
-
-
-#hero-image img {
-  max-width: 100%;
-  height: auto;
 }
 
 /* --- The REVIEWS SECTION --- */
@@ -140,7 +154,7 @@ body {
 .upgrade-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 15px;
 }
 
 .upgrade-item {
@@ -156,7 +170,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .upgrade-item img {
@@ -168,6 +182,10 @@ body {
   font-size: 0.9rem;
 }
 
+#footer-bottom{
+  margin-top: 2rem;
+}
+
 /* --- LARGE SCREEN ADJUSTMENTS --- */
 @media screen and (min-width: 700px) {
   #nav-list li a {
@@ -175,16 +193,43 @@ body {
     padding: 15px 10px;
   }
   
+  #hero{
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
   #hero-container {
     flex-direction: row;
     justify-content: space-between;
   }
 
   #hero-details {
-    width: 30%;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    text-align: left;
+    font-size: larger;
   }
 
-  #hero-image {
-    width: 70%;
+  #hero-details h2{
+    font-size: 1.5rem;
+  }
+  .cta-button{
+    padding: 15px 30px;
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    /*The upgrades on left, reviews on right */
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  #upgrades,
+  #reviews {
+    flex: 1;
   }
 }
