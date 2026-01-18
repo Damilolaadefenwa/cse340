@@ -1,0 +1,2 @@
+-- CRUD PRACTISE
+-- Write SQL statements to accomplish the following tasks.
