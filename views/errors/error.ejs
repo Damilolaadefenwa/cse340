@@ -1,0 +1,24 @@
+<!-- Building the Error View 
+ This file display the error message from the error handler in the server.js
+-->
+
+<!-- THE CONTENT HEADING: EJS -->
+<!-- Check if a title variable exists, 
+If it does, it puts it inside the <h1> tag. -->
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { %>
+        <h1>Error</h1>
+    <% } 
+%>
+
+<!-- THE MESSAGE BLOCK 
+ This code checks if that message exists
+ and displays it in a paragraph.
+-->
+<% if (message) { %>
+    <p class="error-message"><%= message %></p>
+    <% }
+%>
