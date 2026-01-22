@@ -1,4 +1,4 @@
-/* This contain the controller codes and function that build the view and 
+/* This M-C-V controller that contains codes and function that build the view and 
 *  needed by the inventoryRoute file */
 
 const invModel = require("../models/inventory-model")
