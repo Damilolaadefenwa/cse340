@@ -1,3 +1,7 @@
+// This file is part of M - C - V, this contain the function to be called 
+// and Sql code to be used in order to get vehicles 
+// that belong to a particular classification
+
 const pool = require("../database/index.js")
 
 /* ***************************

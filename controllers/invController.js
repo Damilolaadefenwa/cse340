@@ -1,3 +1,6 @@
+/* This contain the controller codes and function that build the view and 
+*  needed by the inventoryRoute file */
+
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
 

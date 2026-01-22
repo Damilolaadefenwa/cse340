@@ -1,6 +1,6 @@
 /* ************************
  * The purpose of this file  for storing functions that are not directly part of the M-V-C process.
- *  Its purpose is to take an array of inventory items, break each item and its data out of the array and embed it into HTML.
+ * Its purpose is to take an array of inventory items, break each item and its data out of the array and embed it into HTML.
  ************************** */
 const invModel = require("../models/inventory-model")
 const Util = {}
