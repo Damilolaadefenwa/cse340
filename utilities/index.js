@@ -73,7 +73,7 @@ Util.buildVehicleDetail = async function(vehicle) {
     display = '<div id="detail-display">'
     display += '<img src="' + vehicle.inv_image + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model + '" />'
     display += '<section id="detail-info">'
-    display += '<h2>' + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details</h2>'
+    display += '<h2>' + vehicle.inv_make + ' ' + vehicle.inv_model + ' ' + vehicle.inv_year + '</h2>'
     display += '<p><strong>Price:</strong> $' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</p>'
     display += '<p><strong>Description:</strong> ' + vehicle.inv_description + '</p>'
     display += '<p><strong>Color:</strong> ' + vehicle.inv_color + '</p>'
