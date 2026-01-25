@@ -14,12 +14,43 @@ invCont.buildByClassificationId = async function (req, res, next) {
   const data = await invModel.getInventoryByClassificationId(classification_id)
   const grid = await utilities.buildClassificationGrid(data)
   let nav = await utilities.getNav()
-  const className = data[0].classification_name
+
+  //WK03-A Checking if data exists before getting the name
+  let className = "Unknown"
+  if (data.length > 0) {
+    className = data[0].classification_name
+  }
+
   res.render("./inventory/classification", {
     title: className + " vehicles",
     nav,
     grid,
   })
+}
+
+
+/* ***************************
+ *  WK03-A Adding a Function to handle the request for
+ *  a specific vehicle and Build inventory item detail view
+ * ************************** */
+invCont.buildByInvId = async function (req, res, next) {
+  const inv_id = req.params.invId
+  const data = await invModel.getInventoryByInvId(inv_id)
+  const detailHtml = await utilities.buildVehicleDetail(data)
+  let nav = await utilities.getNav()
+  
+  if (data) {
+    res.render("./inventory/detail", {
+      title: data.inv_make + " " + data.inv_model,
+      nav,
+      detailHtml,
+    })
+  } else {
+    // If no car found, move to error handler
+    const err = new Error('Vehicle not found')
+    err.status = 404
+    next(err)
+  }
 }
 
 module.exports = invCont

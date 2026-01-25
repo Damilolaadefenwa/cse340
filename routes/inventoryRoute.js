@@ -7,8 +7,17 @@
 const express = require("express")
 const router = new express.Router() 
 const invController = require("../controllers/invController")
+const utilities = require("../utilities/index")
 
 // Route to build inventory by classification view
 router.get("/type/:classificationId", invController.buildByClassificationId);
+
+
+// WK03-A: Route to build inventory by classification view
+// Wrapping the index.js in utilities.handleErrors to catch async errors
+router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
+
+// WK03-A: Route to build the specific inventory item detail view
+router.get("/detail/:invId", utilities.handleErrors(invController.buildByInvId));
 
 module.exports = router;

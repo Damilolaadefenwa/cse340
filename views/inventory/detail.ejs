@@ -1,0 +1,11 @@
+<!-- THE CONTENT HEADING -->
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } 
+%>
+
+       
+<!-- To Display the HTML built in the utilities/index.js -->
+<%- detailHtml %>
