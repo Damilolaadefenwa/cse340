@@ -39,7 +39,7 @@ async function getInventoryByInvId(inv_id) {
       `SELECT * FROM public.inventory WHERE inv_id = $1`,
       [inv_id]
     )
-    return data.rows[0] // only expecting one car, so return the first row
+    return data.rows[0] // I'm expecting one car, so return the first row
   } catch (error) {
     console.error("getinventorybyid error " + error)
   }

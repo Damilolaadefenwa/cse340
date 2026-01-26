@@ -57,7 +57,7 @@ invCont.buildByInvId = async function (req, res, next) {
  *  WK03-A Building an error page for Intentional Error.
  * ************************** */
 invCont.triggerError = async function (req, res, next) {
-  // This will fail because 'something' is not defined, triggering the error middleware
+  // This will fail because 'nothing' is defined, triggering the error middleware
   let result = await something.notDefined(); 
   res.render("index", { title: "Error", nav: [] })
 }
