@@ -2,23 +2,35 @@
  This file display the error message from the error handler in the server.js
 -->
 
-<!-- THE CONTENT HEADING: EJS -->
-<!-- Check if a title variable exists, 
-If it does, it puts it inside the <h1> tag. -->
-<% if (title) { %>
-    <h1>
-        <%= title %>
-    </h1>
-    <% } else { %>
-        <h1>Error</h1>
-    <% } 
-%>
+<div class="error-container">
+    <div class="error-background"></div> <!-- This will hold the blurred image -->
 
-<!-- THE MESSAGE BLOCK 
- This code checks if that message exists
- and displays it in a paragraph.
--->
-<% if (message) { %>
-    <p class="error-message"><%= message %></p>
-    <% }
-%>
+    <!-- THE CONTENT HEADING: EJS -->
+    <!-- Check if a title variable exists, 
+    If it does, it puts it inside the <h1> tag. -->
+    <div class="error-content">
+        <% if (title) { %>
+            <h1>
+                <%= title %>
+            </h1>
+            <p class="error-message">Sorry, we appear to have lost that page.</p>
+            <% } else { %>
+                <h1>Server Error</h1>
+            <% } 
+        %>
+    </div>
+    
+    <!-- THE MESSAGE BLOCK 
+     This code checks if that message exists
+     and displays it in a paragraph.
+    -->
+    <% if (message) { %>
+        <p class="error-details">
+            <%= message %>
+        </p>
+        <% } 
+    %>
+
+</div>
+
+

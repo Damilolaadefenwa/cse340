@@ -18,6 +18,10 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
 
 // WK03-A: Route to build the specific inventory item detail view
+// Also warapping in error handling.
 router.get("/detail/:invId", utilities.handleErrors(invController.buildByInvId));
+
+// WK03-A: Route to trigger an Intentional 500 error
+router.get("/trigger-error", utilities.handleErrors(invController.triggerError));
 
 module.exports = router;
