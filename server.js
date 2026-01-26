@@ -39,25 +39,14 @@ app.use(async (req, res, next) => {
 * Express Error Handler
 * Place after all other middleware
 *************************/
-// app.use(async (err, req, res, next) => {
-//   let nav = await utilities.getNav()
-//   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-//   let message;
-//   if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
-//   res.render("errors/error", {
-//     title: err.status || 'Server Error',
-//     message,
-//     nav
-//   })
-// })
-
-// WK03-A: 500 Server Error written to replace the 404 Error
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  res.status(err.status || 500).render("errors/error", {
+  let message;
+  if(err.status == 500){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
+  res.render("errors/error", {
     title: err.status || '500 Server Error',
-    message: "Oh no! There was a crash. Maybe try a different route?",
+    message,
     nav
   })
 })
