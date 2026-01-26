@@ -42,11 +42,13 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  let message;
-  if(err.status == 500){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
-  res.render("errors/error", {
-    title: err.status || '500 Server Error',
-    message,
+  
+   // Changing the title logic here
+  const displayTitle = err.status === 404 ? '404 Error' : '500 Error';
+  
+  res.status(err.status || 500).render("errors/error", {
+    title: displayTitle, // This sends "500 Error" to the view
+    message: "Oh no! There was a crash. Maybe try a different route?",
     nav
   })
 })

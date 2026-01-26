@@ -319,12 +319,12 @@ h1{
 .error-message {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
+  color: #0c0c0c;
 }
 
 .error-details {
   font-style: italic;
-  color: #666;
+  color: #0c0c0c;
 }
 
 /* --- LARGE SCREEN ADJUSTMENTS --- */
