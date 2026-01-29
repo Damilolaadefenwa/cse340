@@ -326,18 +326,102 @@ h1{
   color: #0c0c0c;
 }
 
-
-/* Wk04-ACTIVITY LESSON CSS Styling */
-/* Flash message unorder-list */
+/* ============================ */
+/* WK04 ACTIVITY LESSON CSS STYLES    */
+/* ============================ */
+/* 1. Flash message unorder-list */
 .notice{
   font-family: var(--myfont);
   font-style: italic;
   color: rgb(232, 5, 5);
 }
 
+/* LOGIN FORM STYLE  */
+/* 1. Ensure padding doesn't widen elements causing scrollbars */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
+/* 2. Container takes full available width with some breathing room */
+.login-container {
+  width: 96%;
+  margin: 20px auto;
+  /* Centering it */
+  padding: 10px;
+  background-color: #ADD8E6;
+}
 
-/* --- LARGE SCREEN ADJUSTMENTS --- */
+/* 3. Form Layout - Stacked vertically */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #32475C;
+  padding: 1rem;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+/* 4. Labels - block level for easy reading */
+.login-form label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+/* 5. Inputs - Large touch targets*/
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* 6. Button - adjustable width to the text */
+.login-form button {
+  background-color: #fff;
+  color: #333;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+  min-width: 120px;
+  /* Ensuring it isn't tOO tiny */
+  align-self: center;
+}
+
+.login-form button:hover {
+  background-color: #ADD8E6;
+}
+
+/* 8. Registration Link Styling */
+.signup-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.signup-link a {
+  color: #ccf2ff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* ============================ */
+/* LARGER SCREENS ADJUSTMENT    */
+/* ============================ */
+
 @media screen and (min-width: 700px) {
   #nav-list li a {
     font-size: 1.1rem;
@@ -384,7 +468,7 @@ h1{
     flex: 1;
   }
 
-  /* WK03-A Css styling */
+  /* WK03-A CSS STYLING */
   #inv-display {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
@@ -398,6 +482,21 @@ h1{
   #detail-info {
     flex: 1;
     /* Take up remaining space */
-   }
+  }
 
+  /* WK04 LOGIN FORM STYLE  */
+  .login-container {
+    max-width: 500px;
+    /* Stops it from getting too wide */
+    margin: 4rem auto;
+    /* More top margin on desktop */
+  }
+    
+  .login-form {
+    padding: 2rem;
+    /* More internal whitespace */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+  }
+  
 }

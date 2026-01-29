@@ -16,6 +16,7 @@ const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities/index")
+const accountRoute = require("./routes/accountRoute")
 
 /* ***********************
  * Middleware
@@ -30,8 +31,7 @@ const utilities = require("./utilities/index")
   saveUninitialized: true,
   name: 'sessionId',
 }))
-
-// Express Messages Middleware
+//1. Express Messages Middleware
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
@@ -50,14 +50,17 @@ app.set("layout", "./layouts/layout") // not at views root
  * Routes
  *************************/
 app.use(static)
-//Index route
+//1. Index route
 app.get("/", utilities.handleErrors(baseController.buildHome))
-// Inventory route
+//2.  Inventory route
 app.use("/inv", inventoryRoute)
-// File Not Found Route - must be last route in list
+//3.  Account route
+app.use("/account", accountRoute)
+//4. File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
+
 
 /* ***********************
 * Express Error Handler
