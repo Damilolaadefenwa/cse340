@@ -326,6 +326,17 @@ h1{
   color: #0c0c0c;
 }
 
+
+/* Wk04-ACTIVITY LESSON CSS Styling */
+/* Flash message unorder-list */
+.notice{
+  font-family: var(--myfont);
+  font-style: italic;
+  color: rgb(232, 5, 5);
+}
+
+
+
 /* --- LARGE SCREEN ADJUSTMENTS --- */
 @media screen and (min-width: 700px) {
   #nav-list li a {
