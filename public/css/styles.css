@@ -487,16 +487,13 @@ h1{
   /* WK04 LOGIN FORM STYLE  */
   .login-container {
     max-width: 500px;
-    /* Stops it from getting too wide */
     margin: 4rem auto;
     /* More top margin on desktop */
   }
     
   .login-form {
     padding: 2rem;
-    /* More internal whitespace */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
   }
   
 }
