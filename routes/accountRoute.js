@@ -13,5 +13,9 @@ const accountController = require("../controllers/accountController")
 // Instruction 3 & 4: This path follows "account" (which is handled in server.js)
 router.get("/login", utilities.handleErrors(accountController.buildLogin));
 
+//  Route to build the Registration view
+//  Instruction 2:
+router.get("/register", utilities.handleErrors(accountController.buildRegister));
+
 // Instruction 6: Export the router for use elsewhere
 module.exports = router;

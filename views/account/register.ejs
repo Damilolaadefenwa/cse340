@@ -1,0 +1,31 @@
+<!-- Building the ACCOUNT REGISTRATION View 
+ This file display the FORM the user will use to register
+ into their or creater an account in the database
+-->
+<h1>
+    <%= title %>
+</h1>
+
+<%- messages() %>
+
+<div class="login-container">
+    <form action="/account/register" method="post" class="login-form">
+        <label for="firstName">First Name:*</label>
+        <input type="text" name="account_firstname" id="firstName" required>
+    
+        <label for="lastName">Last Name:*</label>
+        <input type="text" name="account_lastname" id="lastName" required>
+    
+        <label for="accountEmail">Email Address:* </label>
+        <input type="email" name="account_email" id="accountEmail" required placeholder="example@domain.com">
+    
+        <label for="accountPassword">Password:* </label>
+        <span>(12+ chars, 1 capital, 1 number, 1 special char)</span>
+        <input type="password" name="account_password" id="accountPassword" required
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+        
+        <button type="button" id="pwsBtn">Show Password</button>
+    
+        <button type="submit">Register</button>
+    </form>
+</div>

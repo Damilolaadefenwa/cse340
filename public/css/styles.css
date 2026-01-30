@@ -350,7 +350,7 @@ h1{
   margin: 20px auto;
   /* Centering it */
   padding: 10px;
-  background-color: #ADD8E6;
+  background-color: #00B1D8;
 }
 
 /* 3. Form Layout - Stacked vertically */
@@ -382,7 +382,18 @@ h1{
   margin-bottom: 10px;
 }
 
-/* 6. Button - adjustable width to the text */
+/* 6. Span Password Rules Text */
+.login-form span {
+  font-size: 0.85rem;
+  color: #fff;
+  margin-bottom: 10px;
+  display: block;
+  /*siting on its own line */
+  line-height: 1.3;
+}
+
+/* 7. Button - adjustable width to the text */
+#pswdBtn,
 .login-form button {
   background-color: #fff;
   color: #333;
@@ -402,6 +413,14 @@ h1{
 
 .login-form button:hover {
   background-color: #ADD8E6;
+}
+
+input:required {
+  border-bottom: solid 3px red;
+}
+
+input:required:valid {
+  border-bottom: solid 3px green;
 }
 
 /* 8. Registration Link Styling */
