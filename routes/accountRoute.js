@@ -17,5 +17,9 @@ router.get("/login", utilities.handleErrors(accountController.buildLogin));
 //  Instruction 2:
 router.get("/register", utilities.handleErrors(accountController.buildRegister));
 
+// Enable the Registration Route
+router.post('/register', utilities.handleErrors(accountController.processAccount))
+
+
 // Instruction 6: Export the router for use elsewhere
 module.exports = router;
