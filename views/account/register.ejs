@@ -23,13 +23,13 @@
 <div class="login-container">
     <form action="/account/register" method="post" class="login-form">
         <label for="firstName">First Name:*</label>
-        <input type="text" name="account_firstname" id="firstName" required>
+        <input type="text" name="account_firstname" id="firstName" required value="<%= locals.account_firstname %>">
     
         <label for="lastName">Last Name:*</label>
-        <input type="text" name="account_lastname" id="lastName" required>
+        <input type="text" name="account_lastname" id="lastName" required value="<%= locals.account_lastname %>">
     
         <label for="accountEmail">Email Address:* </label>
-        <input type="email" name="account_email" id="accountEmail" required placeholder="example@domain.com">
+        <input type="email" name="account_email" id="accountEmail" required placeholder="example@domain.com" value="<%= locals.account_email %>">
     
         <label for="accountPassword">Password:* </label>
         <span>Password must be a minimum of 12 characters and 1 capital letter, 1 number and 1 special character.</span>
