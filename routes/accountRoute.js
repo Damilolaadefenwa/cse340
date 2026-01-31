@@ -18,13 +18,27 @@ router.get("/login", utilities.handleErrors(accountController.buildLogin));
 //  Instruction 2:
 router.get("/register", utilities.handleErrors(accountController.buildRegister));
 
-// Enable the Registration Route
-// router.post('/register', utilities.handleErrors(accountController.processAccount))
+// Enable the Registration Route to process it
+// 1. router.post('/register', utilities.handleErrors(accountController.processAccount))
 router.post(
   "/register",
   regValidate.registationRules(),   // Process the registration data
   regValidate.checkRegData,
-  utilities.handleErrors(accountController.processAccount)
+  utilities.handleErrors(accountController.processRegister)
+)
+// 2. Process the login attempt
+// A. Placeholder route function 
+// router.post(
+//   "/login",
+//   (req, res) => {
+//     res.status(200).send('login process')
+//   }
+// )
+router.post(
+  "/login",
+  regValidate.loginRules(),
+  regValidate.checkLoginData,
+  utilities.handleErrors(accountController.processLogin) // I will create this function in account-controller
 )
 
 

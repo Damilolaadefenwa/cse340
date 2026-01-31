@@ -14,6 +14,7 @@ async function buildLogin(req, res, next) {
   res.render("account/login", {
     title: "LOGIN",
     nav,
+    errors: null, //pass this to the view.
   })
 }
 
@@ -33,7 +34,7 @@ async function buildRegister(req, res, next) {
 /* ****************************************
 *  Function To Process Form Registration
 * *************************************** */
-async function processAccount(req, res) {
+async function processRegister(req, res) {
   let nav = await utilities.getNav()
   const { account_firstname, account_lastname, account_email, account_password } = req.body
 
@@ -62,4 +63,17 @@ async function processAccount(req, res) {
   }
 }
 
-module.exports = { buildLogin, buildRegister, processAccount}
+/* ****************************************
+ * Function To Process Login Request
+ * ************************************ */
+async function processLogin(req, res) {
+  let nav = await utilities.getNav()
+  const { account_email, account_password } = req.body
+  
+  // For now, only send a message. I will add the real authentication later.
+  req.flash("notice", "Process Login logic goes here.") 
+  res.redirect("/account/login")
+}
+
+
+module.exports = { buildLogin, buildRegister, processRegister, processLogin }
