@@ -8,6 +8,7 @@ const express = require("express")
 const router = new express.Router() 
 const utilities = require("../utilities/index")
 const accountController = require("../controllers/accountController")
+const regValidate = require('../utilities/account-validation')
 
 // Route to build the login view
 // Instruction 3 & 4: This path follows "account" (which is handled in server.js)
@@ -18,7 +19,13 @@ router.get("/login", utilities.handleErrors(accountController.buildLogin));
 router.get("/register", utilities.handleErrors(accountController.buildRegister));
 
 // Enable the Registration Route
-router.post('/register', utilities.handleErrors(accountController.processAccount))
+// router.post('/register', utilities.handleErrors(accountController.processAccount))
+router.post(
+  "/register",
+  regValidate.registationRules(),   // Process the registration data
+  regValidate.checkRegData,
+  utilities.handleErrors(accountController.processAccount)
+)
 
 
 // Instruction 6: Export the router for use elsewhere

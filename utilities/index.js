@@ -8,7 +8,7 @@ const invModel = require("../models/inventory-model")
 const Util = {}
 
 /* ************************
- * Build/Constructs the nav HTML unordered list
+ * Build/Constructs the HTML unordered Nav. list
  ************************** */
 Util.getNav = async function (req, res, next) {
   let data = await invModel.getClassifications()
@@ -32,7 +32,7 @@ Util.getNav = async function (req, res, next) {
 }
 
 /* **************************************
-* Build/Construct the classification view HTML
+* Build/Construct the HTML classification view of Vehicles
 * ************************************ */
 Util.buildClassificationGrid = async function(data){
   let grid
@@ -65,7 +65,7 @@ Util.buildClassificationGrid = async function(data){
 }
 
 /* **************************************
-* Wk03-A: Building the single vehicle detail view and wrapping it in HTML
+* Wk03-A: Building the single detail view of Classification of vehicles and wrapping it in HTML
 * ************************************ */
 Util.buildVehicleDetail = async function(vehicle) {
   let display
