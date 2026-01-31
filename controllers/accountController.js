@@ -71,6 +71,7 @@ async function processLogin(req, res) {
   const { account_email, account_password } = req.body
   
   // For now, only send a message. I will add the real authentication later.
+  // This is just an attempt to process the login 
   req.flash("notice", "Process Login logic goes here.") 
   res.redirect("/account/login")
 }
