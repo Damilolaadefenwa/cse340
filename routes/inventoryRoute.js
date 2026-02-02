@@ -24,4 +24,8 @@ router.get("/detail/:invId", utilities.handleErrors(invController.buildByInvId))
 // WK03-A: Route to trigger an Intentional 500 error
 router.get("/trigger-error", utilities.handleErrors(invController.triggerError));
 
+//WK04-A: Registering the Management route
+//Route to build management view
+router.get("/", utilities.handleErrors(invCont.buildManagement));
+
 module.exports = router;

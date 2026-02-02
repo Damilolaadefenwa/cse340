@@ -1,5 +1,6 @@
-/* This M-C-V controller that contains codes and function that build the view and 
-*  needed by the inventoryRoute file */
+/* This is a controller for inventory, contains the logic 
+*  that extract data from the model, build the view and direct route 
+*  from the inventoryRoute file */
 
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
@@ -27,7 +28,6 @@ invCont.buildByClassificationId = async function (req, res, next) {
     grid,
   })
 }
-
 
 /* ***************************
  *  WK03-A Adding a Function to handle the request for
@@ -61,5 +61,19 @@ invCont.triggerError = async function (req, res, next) {
   let result = await something.notDefined(); 
   res.render("index", { title: "Error", nav: [] })
 }
+
+
+/* ***************************
+ *  WK04-A:  Adding a Function That Build and Deliver the management view
+ * ************************** */
+invCont.buildManagement = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("./inventory/management", {
+    title: "Vehicle Management",
+    nav,
+    errors: null,
+  })
+}
+
 
 module.exports = invCont
