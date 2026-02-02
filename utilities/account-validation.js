@@ -1,5 +1,6 @@
-// This file contains function and codes to execute server-side validation
-// As part of the MVC process.
+// As part of the MVC process;This file contains function and codes
+// to execute server-side validation for input of data into
+// the database via the REGISTRATION FORM
 
 const utilities = require(".")
 const { body, validationResult } = require("express-validator")

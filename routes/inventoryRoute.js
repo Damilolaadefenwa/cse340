@@ -8,6 +8,7 @@ const express = require("express")
 const router = new express.Router() 
 const invController = require("../controllers/invController")
 const utilities = require("../utilities/index")
+const invValidate = require('../utilities/inventory-validation')
 
 // Route to build inventory by classification view
 router.get("/type/:classificationId", invController.buildByClassificationId);
@@ -25,7 +26,17 @@ router.get("/detail/:invId", utilities.handleErrors(invController.buildByInvId))
 router.get("/trigger-error", utilities.handleErrors(invController.triggerError));
 
 //WK04-A: Registering the Management route
-//Route to build management view
+// 1. Route to build management view
 router.get("/", utilities.handleErrors(invCont.buildManagement));
+
+// 2. Registering the add-classification data view route
+router.get("/add-classification", utilities.handleErrors(invCont.buildAddClassification));
+router.post(
+  "/add-classification",
+  invValidate.classificationRules(),
+  invValidate.checkClassificationData,
+  utilities.handleErrors(invCont.addClassification)
+);
+
 
 module.exports = router;

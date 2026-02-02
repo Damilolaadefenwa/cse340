@@ -1,0 +1,27 @@
+<!-- Building the ADD CLASSIFICATION FORM UI 
+ This file display the FORM to admin-user to add a
+ vehicle classification into the database.
+-->
+
+<h1>
+    <%= title %>
+</h1>
+<%- messages() %>
+<% if (errors) { %>
+    <ul class="notice">
+        <% errors.array().forEach(error=> { %>
+            <li>
+                <%= error.msg %>
+            </li>
+        <% }) %>
+    </ul>
+    <%} 
+%>
+
+<!--Add-Classification Form -->
+<form action="/inv/add-classification" method="post" class="login-form">
+    <span>Classification Name must be alphabetic characters only.</span>
+    <label for="classificationName">Classification Name</label>
+    <input type="text" name="classification_name" id="classificationName" required pattern="^[a-zA-Z0-9]+$">
+    <button type="submit">Add Classification</button>
+</form>
