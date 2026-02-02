@@ -27,15 +27,25 @@ router.get("/trigger-error", utilities.handleErrors(invController.triggerError))
 
 //WK04-A: Registering the Management route
 // 1. Route to build management view
-router.get("/", utilities.handleErrors(invCont.buildManagement));
+router.get("/", utilities.handleErrors(invController.buildManagement));
 
-// 2. Registering the add-classification data view route
-router.get("/add-classification", utilities.handleErrors(invCont.buildAddClassification));
+// 2a. Registering the add-classification data view route
+router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification));
 router.post(
   "/add-classification",
   invValidate.classificationRules(),
   invValidate.checkClassificationData,
-  utilities.handleErrors(invCont.addClassification)
+  utilities.handleErrors(invController.addClassification)
+);
+
+// 2a. The route to display the "Add-Inventory".
+router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory));
+// 2b. The route to process the "Add-Inventory" data.
+router.post(
+  "/add-inventory",
+  invValidate.inventoryRules(),
+  invValidate.checkInventoryData,
+  utilities.handleErrors(invController.addInventory)
 );
 
 
