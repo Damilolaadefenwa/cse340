@@ -1,0 +1,47 @@
+<!-- Building the ADD INVENTORY FORM UI 
+ This file display the FORM to admin-user to add a
+ vehicle items into the database. Apply the Stickiness
+-->
+
+<!-- Display Title -->
+<h1>
+    <%= title %>
+</h1>
+
+<!-- Display Flash Message -->
+<%- messages() %>
+
+<!--Add-Inventory Form -->
+<form action="/inv/add-vehicle" method="post" class="login-form">
+    <label>Classification</label>
+    <%- classificationSelect %>
+
+    <label for="invMake">Make</label>
+    <input type="text" name="inv_make" id="invMake" required value="<%= locals.inv_make %>">
+
+    <label for="invModel">Model</label>
+    <input type="text" name="inv_model" id="invModel" required value="<%= locals.inv_model %>">
+
+    <label for="invYear">Year</label>
+    <input type="number" name="inv_year" id="invYear" required value="<%= locals.inv_year %>">
+
+    <label for="invDescription">Description</label>
+    <textarea name="inv_description" required><%= locals.inv_description %></textarea>
+
+    <label for="invImage">Image Path</label>
+    <input type="text" name="inv_image" value="/images/vehicles/no-image.png" required>
+
+    <label for="invThumbnail">Thumbnail Path</label>
+    <input type="text" name="inv_thumbnail" value="/images/vehicles/no-image-tn.png" required>
+
+    <label for="invPrice">Price</label>
+    <input type="number" name="inv_price" required value="<%= locals.inv_price %>">
+
+    <label for="invMiles">Miles</label>
+    <input type="number" name="inv_miles" required value="<%= locals.inv_miles %>">
+
+    <label for="invColor">Color</label>
+    <input type="text" name="inv_color" required value="<%= locals.inv_color %>">
+
+    <button type="submit">Add Vehicle</button>
+</form>
