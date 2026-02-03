@@ -1,4 +1,4 @@
-<!-- Building the ADD INVENTORY FORM UI 
+<!--WK04-A: Building the ADD INVENTORY FORM UI 
  This file display the FORM to admin-user to add a
  vehicle items into the database. Apply the Stickiness
 -->
@@ -8,8 +8,20 @@
     <%= title %>
 </h1>
 
-<!-- Display Flash Message -->
+<!-- This displays the flash messages (like "Sorry, insertion failed") -->
 <%- messages() %>
+
+<!-- This displays the specific validation errors (like "Please provide a make") -->
+<% if (errors) { %>
+    <ul class="notice">
+        <% errors.array().forEach(error=> { %>
+            <li>
+                <%= error.msg %>
+            </li>
+        <% }) %>
+    </ul>
+    <% } 
+%>
 
 <!--Add-Inventory Form -->
 <form action="/inv/add-inventory" method="post" class="login-form">

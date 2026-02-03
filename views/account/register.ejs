@@ -8,10 +8,10 @@
     <%= title %>
 </h1>
 
-<!-- Display Flash Message -->
+<!-- This displays the flash messages (like "Sorry, 404 page) -->
 <%- messages() %>
 
-<!-- Registration Error Display-->
+<!-- This Display Registration Error Message -->
 <% if (errors) { %>
     <ul class="notice">
         <% errors.array().forEach(error=> { %>

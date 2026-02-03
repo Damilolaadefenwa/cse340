@@ -1,14 +1,17 @@
-<!-- Building the ADD CLASSIFICATION FORM UI 
+<!-- WK04-A: Building the ADD CLASSIFICATION FORM UI 
  This file display the FORM to admin-user to add a
  vehicle classification into the database.
 -->
 
+<!-- Display Title -->
 <h1>
     <%= title %>
 </h1>
 
+<!-- This displays the flash messages (like "Sorry, insertion failed") -->
 <%- messages() %>
 
+<!-- This displays the specific validation errors (like "Please provide a make") -->
 <% if (errors) { %>
     <ul class="notice">
         <% errors.array().forEach(error=> { %>

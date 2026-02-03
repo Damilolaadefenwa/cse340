@@ -2,13 +2,16 @@
  This file display the FORM the user will use to login/create
  into their account in the database
 -->
+
+<!-- This displays the title-->
 <h1>
     <%= title %>
 </h1>
 
+<!-- This displays the flash messages (like "Sorry, 404 page) -->
 <%- messages() %>
 
-<!-- Login Error Display-->
+<!-- Login Error Message Display-->
 <% if (errors) { %>
     <ul class="notice">
         <% errors.array().forEach(error=> { %>
