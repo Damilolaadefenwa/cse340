@@ -327,7 +327,7 @@ h1{
 }
 
 /* ============================ */
-/* WK04 ACTIVITY LESSON CSS STYLES    */
+/* WK04 ACTIVITY-ALSO USED FOR ASSIGNMENT LESSON CSS STYLES    */
 /* ============================ */
 /* 1. Flash message unorder-list */
 .notice{
@@ -438,6 +438,34 @@ input:required:valid {
 }
 
 /* ============================ */
+/* WK04-A MOBILE SCREENS ADJUSTMENT    */
+/* DUE TO ADDING NEW CLASS. (Apply only below 380px) --- */
+/* ============================ */
+
+@media screen and (max-width: 379px) {
+  #nav-list {
+    flex-wrap: wrap;
+    /* Allowing items to move to second line*/
+  }
+
+  #nav-list li {
+    /* Allow items to take up as much space as they need on mobile */
+    flex: 1 1 auto;
+    /* min-width: 80px; */
+    /*take least 2/3 items per row on tiny screens */
+  }
+
+  #nav-list li a {
+    white-space: normal;
+    /* Allowing text to wrap and remove the single-line rule */
+    padding: 10px 5px;
+    font-size: 0.9rem;
+    /* Slightly larger for easier tapping on tiny screens */
+  }
+}
+
+
+/* ============================ */
 /* LARGER SCREENS ADJUSTMENT    */
 /* ============================ */
 
@@ -503,7 +531,7 @@ input:required:valid {
     /* Take up remaining space */
   }
 
-  /* WK04 LOGIN FORM STYLE  */
+  /* WK04--LOGIN FORM STYLE  */
   .login-container {
     max-width: 500px;
     margin: 4rem auto;
