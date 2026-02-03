@@ -29,18 +29,18 @@ router.get("/trigger-error", utilities.handleErrors(invController.triggerError))
 // 1. Route to build management view
 router.get("/", utilities.handleErrors(invController.buildManagement));
 
-// 2a. Registering the add-classification data view route
+// 2a. The route to display the "Add-classification Form"
 router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification));
+// 2b. The route to process the data in the "Add-classification" Form
 router.post(
   "/add-classification",
   invValidate.classificationRules(),
   invValidate.checkClassificationData,
   utilities.handleErrors(invController.addClassification)
 );
-
-// 2a. The route to display the "Add-Inventory".
+// 3a. The route to display the "Add-Inventory Form".
 router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory));
-// 2b. The route to process the "Add-Inventory" data.
+// 3b. The route to process the data in the "Add-Inventory" Form.
 router.post(
   "/add-inventory",
   invValidate.inventoryRules(),

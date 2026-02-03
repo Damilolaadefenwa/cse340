@@ -124,16 +124,41 @@ invCont.buildAddInventory = async function (req, res, next) {
 //4. Process Add Inventory task View
 invCont.addInventory = async function (req, res) {
   let nav = await utilities.getNav()
-  const { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id } = req.body
+  const { inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_miles,
+    inv_color,
+    classification_id
+  } = req.body
   
-  const result = await invModel.addInventory(inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id)
+  const regResult = await invModel.addInventory(
+    inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_miles,
+    inv_color,
+    classification_id
+  )
 
-  if (result) {
+  if (regResult) {
     req.flash("notice", `The ${inv_make} ${inv_model} was successfully added.`)
-    res.status(201).render("./inventory/management", { title: "Vehicle Management", nav })
+    res.status(201).render("./inventory/management", {
+      title: "Vehicle Management",
+      nav,
+    })
   } else {
+    // If it fails then rebuild the list for the sticky form
     let classificationSelect = await utilities.buildClassificationList(classification_id)
-    req.flash("notice", "Failed to add vehicle.")
+    req.flash("notice", "Sorry the insertion Failed.")
     res.status(501).render("./inventory/add-inventory", {
       title: "Add Vehicle",
       nav,
