@@ -357,18 +357,18 @@ h1{
 .login-form {
   display: flex;
   flex-direction: column;
-  background-color: #32475C;
+  background-color: #23303e;
   padding: 1rem;
-  border: 1px solid #fff;
+  border: 1px solid #ffffff;
   border-radius: 5px;
 }
 
 /* 4. Labels - block level for easy reading */
 .login-form label {
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: #ffffff;
   margin-top: 1rem;
 }
 
@@ -384,8 +384,9 @@ h1{
 
 /* 6. Span Password Rules Text */
 .login-form span {
-  font-size: 0.85rem;
-  color: #fff;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #ffffff;
   margin-bottom: 10px;
   display: block;
   /*siting on its own line */
@@ -395,7 +396,7 @@ h1{
 /* 7. Button - adjustable width to the text */
 #pswdBtn,
 .login-form button {
-  background-color: #fff;
+  background-color: #ffffff;
   color: #333;
   padding: 10px 20px;
   border: none;
@@ -428,7 +429,7 @@ input:required:valid {
   text-align: center;
   margin-top: 1.5rem;
   font-size: 1rem;
-  color: #fff;
+  color: #ffffff;
 }
 
 .signup-link a {
