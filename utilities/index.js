@@ -88,7 +88,7 @@ Util.buildVehicleDetail = async function(vehicle) {
 
 /* **************************************
 * Wk04-A: Adding a function to build the dynamic dropdown list
-* to Select Classification of vehincle from.
+* to Select Classification of vehicle from.
 * ************************************ */
 Util.buildClassificationList = async function (classification_id = null) {
   let data = await invModel.getClassifications()

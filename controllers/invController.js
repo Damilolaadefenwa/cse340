@@ -109,7 +109,7 @@ invCont.addClassification = async function (req, res) {
   }
 }
 
-//3. Build Add Inventory task view
+//3. Build Add-Inventory task view
 invCont.buildAddInventory = async function (req, res, next) {
   let nav = await utilities.getNav()
   let classificationSelect = await utilities.buildClassificationList()
@@ -121,7 +121,7 @@ invCont.buildAddInventory = async function (req, res, next) {
   })
 }
 
-//4. Process Add Inventory task View
+//4. Process Add-Inventory task View
 invCont.addInventory = async function (req, res) {
   let nav = await utilities.getNav()
   const { inv_make,
