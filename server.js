@@ -46,6 +46,7 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 /* ***********************
  * View Engine and Templates
  *************************/
+//Created in WK01 to control ejs.UI template
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
@@ -53,14 +54,15 @@ app.set("layout", "./layouts/layout") // not at views root
 /* ***********************
  * Routes
  *************************/
+//1a.Public folder route - Wk01
 app.use(static)
-//1. Index route
+//1b. Index(Home-page) route - Wk01
 app.get("/", utilities.handleErrors(baseController.buildHome))
-//2.  Inventory route
+//2.  Inventory route - WK02 for WK04
 app.use("/inv", inventoryRoute)
-//3.  Account route
+//3.  Account route -Wk03
 app.use("/account", accountRoute)
-//4. File Not Found Route - must be last route in list
+//4. File Not Found Route - must be last route in list WK04
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
@@ -70,6 +72,7 @@ app.use(async (req, res, next) => {
 * Express Error Handler
 * Place after all other middleware
 *************************/
+// Setting up the control for all error handling in the application
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)

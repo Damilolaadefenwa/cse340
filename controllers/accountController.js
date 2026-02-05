@@ -1,5 +1,7 @@
-/* This M-C-V controller that contains codes and function 
-* that will process the request and return a view to the browser. 
+/* This is a controller for account, contains the logic 
+*  that extract data from the model, build the view and direct  
+*  the traffic that is associated with the account e.g account-model
+*  and account-ejs-view.
 */
 
 const utilities = require("../utilities/")

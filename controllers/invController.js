@@ -1,6 +1,8 @@
 /* This is a controller for inventory, contains the logic 
-*  that extract data from the model, build the view and direct route 
-*  from the inventoryRoute file */
+*  that extract data from the model, build the view and direct  
+*  the traffic that is associated with the inventory e.g inventory-model
+*  and inventory-ejs-view.
+*/
 
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")

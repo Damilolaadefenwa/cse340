@@ -1,3 +1,9 @@
+/* ******************************************
+ * This landing page file for setting the connection to the database
+ * It is not view but used for establish a pool for interaction.
+*******************************************/
+
+
 const { Pool } = require("pg")
 require("dotenv").config()
 /* ***************

@@ -1,6 +1,6 @@
-/* This M-C-V controller that contains codes and function that build the view.
-*  It hold the object of the database called through the 
-* external link from the remote postgre database located in the index.js and evn. */
+/* This M-C-V controller that contains Logic that build the 
+ Home page view and direct the traffic related to it  
+*/
 
 const utilities = require("../utilities/")
 const baseController = {}
