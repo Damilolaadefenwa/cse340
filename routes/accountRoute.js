@@ -26,7 +26,7 @@ router.post(
   regValidate.checkRegData,
   utilities.handleErrors(accountController.processRegister)
 )
-// 2. Process the login attempt
+// 2. Route to Process the login attempt
 // A. Placeholder route function 
 // router.post(
 //   "/login",

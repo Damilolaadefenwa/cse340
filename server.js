@@ -17,11 +17,18 @@ const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities/index")
 const accountRoute = require("./routes/accountRoute")
+//Wk04
 const bodyParser = require("body-parser")
+//Wk05
+const cookieParser = require("cookie-parser")
+
 
 /* ***********************
  * Middleware
  * ************************/
+//Any code in the middleware section will be allow to be implemented
+//if it's absent then it's denied.
+//WK04: created session
  app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -32,15 +39,17 @@ const bodyParser = require("body-parser")
   saveUninitialized: true,
   name: 'sessionId',
 }))
-//1. Express Messages Middleware
+//1. Express Messages Middleware - WK03
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
-//2. Make the body-Parser available to the application:
+//2. Make the body-Parser available to the application: WK04
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+//3. WK05 adding use statement for cookieParser.
+app.use(cookieParser())
 
 
 /* ***********************
