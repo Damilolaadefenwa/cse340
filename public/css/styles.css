@@ -439,6 +439,18 @@ input:required:valid {
 }
 
 /* ============================ */
+/* WK05 ACTIVITY-ALSO USED FOR ASSIGNMENT LESSON CSS STYLES    */
+/* ============================ */
+.login-page p{
+  font-size: 1rem;
+  color: #0303cf;
+}
+
+
+
+
+
+/* ============================ */
 /* WK04-A MOBILE SCREENS ADJUSTMENT    */
 /* DUE TO ADDING NEW CLASS. (Apply only below 380px) --- */
 /* ============================ */
