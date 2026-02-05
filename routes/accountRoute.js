@@ -15,31 +15,27 @@ const regValidate = require('../utilities/account-validation')
 router.get("/login", utilities.handleErrors(accountController.buildLogin));
 
 //  Route to build the Registration view
-//  Instruction 2:
+// 1. Instruction-2:
 router.get("/register", utilities.handleErrors(accountController.buildRegister));
 
 // Enable the Registration Route to process it
-// 1. router.post('/register', utilities.handleErrors(accountController.processAccount))
+// router.post('/register', utilities.handleErrors(accountController.processAccount))
 router.post(
   "/register",
   regValidate.registationRules(),   // Process the registration data
   regValidate.checkRegData,
   utilities.handleErrors(accountController.processRegister)
 )
-// 2. Route to Process the login attempt
-// A. Placeholder route function 
-// router.post(
-//   "/login",
-//   (req, res) => {
-//     res.status(200).send('login process')
-//   }
-// )
+// WK04-Assignment: Route to Process the login Action
 router.post(
   "/login",
   regValidate.loginRules(),
   regValidate.checkLoginData,
   utilities.handleErrors(accountController.processLogin) // I will create this function in account-controller
 )
+
+//WK05-A: Route to build the Account Management view
+router.get("/", utilities.handleErrors(accountController.buildAccountManagement))
 
 
 // Instruction 6: Export the router for use elsewhere

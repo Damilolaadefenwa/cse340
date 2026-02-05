@@ -136,5 +136,17 @@ async function processLogin(req, res) {
   // res.redirect("/account/login")
 }
 
+/* ****************************************
+ * WK05: Deliver Account Management View
+ * *************************************** */
+async function buildAccountManagement(req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("account/management", {
+    title: "Account Management",
+    nav,
+    errors: null,
+  })
+}
 
-module.exports = { buildLogin, buildRegister, processRegister, processLogin }
+
+module.exports = { buildLogin, buildRegister, processRegister, processLogin, buildAccountManagement }
