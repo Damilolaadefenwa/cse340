@@ -35,7 +35,7 @@ router.post(
 )
 
 //WK05-A: Route to build the Account Management view
-router.get("/", utilities.handleErrors(accountController.buildAccountManagement))
+router.get("/management", utilities.handleErrors(accountController.buildAccountManagement))
 
 
 // Instruction 6: Export the router for use elsewhere
