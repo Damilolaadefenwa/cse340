@@ -50,6 +50,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 //3. WK05 adding use statement for cookieParser.
 app.use(cookieParser())
+//4. W05 adding middleware function for JWTToken
+app.use(utilities.checkJWTToken)
+
 
 
 /* ***********************
