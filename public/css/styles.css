@@ -32,7 +32,7 @@ body {
   padding: 20px;
 }
 
-/* WK05-Activiy Added H1 Styling */
+/* WK05-Activiy: Added H1 Styling */
 #wrapper h1{
   font-size: 1.8rem;
   color: #333;
@@ -485,6 +485,63 @@ label[for="classificationList"] {
   font-weight: bold;
 }
 
+/* MANAGEMENT VIEW TABLE STYLING*/
+/* 1. Preventing the table from looking like a flat line when empty */
+#inventoryDisplay:empty {
+  display: none;
+}
+/* 2. Main Table Styling */
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  /* Removing double borders */
+  margin-top: 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* 3. Header and Cell Styling */
+#inventoryDisplay th,
+#inventoryDisplay td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 4. Header specific look */
+#inventoryDisplay thead {
+  background-color: #23303e;
+  /* background-color: #0056b3; */
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* 5. Zebra Striping for readability */
+#inventoryDisplay tbody tr:nth-child(even) {
+  background-color: #d55f5f;
+}
+
+/* 6. Hover effect to help the user track rows */
+#inventoryDisplay tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: default;
+}
+
+/* 7. Styling for Action links (Edit/Delete) */
+#inventoryDisplay a {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#inventoryDisplay a:hover {
+  text-decoration: underline;
+  color: #d9534f;
+  /* Changes to red on hover for attention */
+}
 
 
 /* ============================ */
