@@ -34,8 +34,8 @@ router.post(
   utilities.handleErrors(accountController.processLogin) // I will create this function in account-controller
 )
 
-//WK05-A: Route to build the Account Management view
-router.get("/management", utilities.handleErrors(accountController.buildAccountManagement))
+//WK05-A: Route to deliver the Account Management view
+router.get("/management", utilities.checkLogin, utilities.handleErrors(accountController.buildAccountManagement))
 
 
 // Instruction 6: Export the router for use elsewhere
