@@ -70,9 +70,11 @@ invCont.triggerError = async function (req, res, next) {
  * ************************** */
 invCont.buildManagement = async function (req, res, next) {
   let nav = await utilities.getNav()
+  const classificationSelect = await utilities.buildClassificationList()
   res.render("./inventory/management", {
     title: "Vehicle Management",
     nav,
+    classificationSelect,
     errors: null,
   })
 }
@@ -80,7 +82,7 @@ invCont.buildManagement = async function (req, res, next) {
 /* ***************************
  *  WK04-A:Adding functions to build the form and process the insertion.
  * ************************** */
-// 1. Building the Add-Classification task view
+// 1. Building and Deliver the Add-Classification task view
 invCont.buildAddClassification = async function (req, res, next) {
   let nav = await utilities.getNav()
   res.render("./inventory/add-classification", {
@@ -111,7 +113,7 @@ invCont.addClassification = async function (req, res) {
   }
 }
 
-//3. Build Add-Inventory task view
+//3. Build and Deliver Add-Inventory task view
 invCont.buildAddInventory = async function (req, res, next) {
   let nav = await utilities.getNav()
   let classificationSelect = await utilities.buildClassificationList()

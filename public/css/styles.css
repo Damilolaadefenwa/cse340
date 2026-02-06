@@ -446,8 +446,34 @@ input:required:valid {
   color: #0303cf;
 }
 
+/* Styling the add-inventory form dropdown */
+#classificationList,
+.select-dropdown {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  /* To match the width of the other inputs */
+}
 
+/* Styling when the user clicks on it */
+#classificationList:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+}
 
+/* To keep spacing consistent in the dropdown*/
+label[for="classificationList"] {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
 
 
 /* ============================ */
