@@ -48,5 +48,8 @@ router.post(
   utilities.handleErrors(invController.addInventory)
 );
 
+// WK05-A 4. The route to process the inventory by classification
+// in the management view, So that the Javascript we added can work
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
 module.exports = router;

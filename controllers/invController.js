@@ -172,4 +172,20 @@ invCont.addInventory = async function (req, res) {
 }
 
 
+//WK05-Acitivy: Build and Deliver the function that will return the JSON data.
+// created by the Javascript in the inventory.js file.
+/* ***************************
+ *  Return Inventory by Classification As JSON
+ * ************************** */
+invCont.getInventoryJSON = async (req, res, next) => {
+  const classification_id = parseInt(req.params.classification_id)
+  const invData = await invModel.getInventoryByClassificationId(classification_id)
+  if (invData[0].inv_id) {
+    return res.json(invData)
+  } else {
+    next(new Error("No data returned"))
+  }
+}
+
+
 module.exports = invCont
