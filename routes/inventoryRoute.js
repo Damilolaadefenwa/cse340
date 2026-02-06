@@ -55,7 +55,7 @@ router.get("/getInventory/:classification_id", utilities.handleErrors(invControl
 
 // 2. Route to build the edit inventory view
 // The :inv_id is a parameter that holds the ID of the car that will be edited
-router.get("/edit/:inv_id", utilities.handleErrors(invCont.editInventoryView))
+router.get("/edit-inventory/:inv_id", utilities.handleErrors(invCont.editInventoryView))
 
 
 module.exports = router;
