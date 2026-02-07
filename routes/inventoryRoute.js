@@ -57,7 +57,11 @@ router.get("/getInventory/:classification_id", utilities.handleErrors(invControl
 // The :inv_id is a parameter that holds the ID of the car that will be edited
 router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
 // 2b. Route to handle the incoming request
-router.post("/update/", utilities.handleErrors(invController.updateInventory))
+router.post("/update/",
+  invValidate.inventoryRules(),
+  invValidate.checkUpdateData,
+  utilities.handleErrors(invController.updateInventory)
+)
 
 
 module.exports = router;
