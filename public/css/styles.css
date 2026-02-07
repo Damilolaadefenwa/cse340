@@ -520,7 +520,7 @@ label[for="classificationList"] {
 
 /* 5. Zebra Striping for readability */
 #inventoryDisplay tbody tr:nth-child(even) {
-  background-color: #d55f5f;
+  background-color: #d2dbe4;
 }
 
 /* 6. Hover effect to help the user track rows */
