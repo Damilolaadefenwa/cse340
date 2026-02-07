@@ -24,7 +24,7 @@
 %>
 
 <!--Add-Inventory Form -->
-<form action="/inv/update" method="post" class="login-form">
+<form action="/inv/update" method="post" class="login-form" id="updateForm">
     <label  for="classificationList">Classification</label>
     <%- classificationSelect %>
     <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>" <% } %>>
@@ -56,7 +56,8 @@
     <label for="invColor">Color</label>
     <input type="text" name="inv_color" id="invColor" required value="<%= locals.inv_color %>">
 
-    <button type="submit">Update Vehicle</button>
+    <button type="submit" disabled>Update Vehicle</button>
     <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
     <% } %>>
 </form>
+<script src="/js/inv-update.js"></script>
