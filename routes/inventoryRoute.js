@@ -53,9 +53,11 @@ router.post(
 // in the management view, So that the Javascript we added can work
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
-// 2. Route to build the edit inventory view
+// 2a. Route to build the edit inventory view
 // The :inv_id is a parameter that holds the ID of the car that will be edited
 router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
+// 2b. Route to handle the incoming request
+router.post("/update/", utilities.handleErrors(invController.updateInventory))
 
 
 module.exports = router;
