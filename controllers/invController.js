@@ -236,17 +236,17 @@ invCont.updateInventory = async function (req, res, next) {
     classification_id,
   } = req.body
   const updateResult = await invModel.updateInventory(
-    inv_id,  
+    parseInt(inv_id),  
     inv_make,
     inv_model,
     inv_description,
     inv_image,
     inv_thumbnail,
-    inv_price,
-    inv_year,
-    inv_miles,
+    parseFloat(inv_price), //convert price to be decimal
+    parseInt(inv_year),    // convert to integer
+    parseInt(inv_miles),   // same
     inv_color,
-    classification_id
+    parseInt(classification_id) //convert to Integer
   )
 
   if (updateResult) {
