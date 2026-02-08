@@ -99,10 +99,15 @@ invCont.addClassification = async function (req, res) {
 
   if (result) {
     let nav = await utilities.getNav() // Re-generate nav to include new classification
+    // FIX: Re-generate the dropdown list so the new classification appears!
+    const classificationSelect = await utilities.buildClassificationList()
+
     req.flash("notice", `The ${classification_name} classification was successfully added.`)
     res.status(201).render("./inventory/management", {
       title: "Vehicle Management",
       nav,
+      classificationSelect,
+      errors: null,
     })
   } else {
     req.flash("notice", "Sorry, adding the classification failed.")
