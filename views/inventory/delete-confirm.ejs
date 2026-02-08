@@ -1,0 +1,46 @@
+<!--WK04-A: Building the DELETE-CONFIRMATION FORM UI 
+ This file display the FORM to admin-user to confirm and delete a
+ vehicle items from the database.It's also apply the Stickiness
+ and an inactive submition button if no new data is enter through
+ the javascript.
+-->
+
+<!-- Display Title -->
+<h1>
+    <%= title %>
+</h1>
+
+<!-- This displays the flash messages (like "Sorry, insertion failed") -->
+<%- messages() %>
+
+<!-- This displays the specific validation errors (like "Please provide a make") -->
+<% if (errors) { %>
+    <ul class="notice">
+        <% errors.array().forEach(error=> { %>
+            <li>
+                <%= error.msg %>
+            </li>
+        <% }) %>
+    </ul>
+    <% } 
+%>
+
+<!--Delete-Confirmation Form -->
+<form action="/inv/delete" method="post" class="login-form" id="updateForm">
+    <label for="invMake">Make</label>
+    <input type="text" name="inv_make" id="invMake" required readonly value="<%= locals.inv_make %>">
+
+    <label for="invModel">Model</label>
+    <input type="text" name="inv_model" id="invModel" required readonly value="<%= locals.inv_model %>">
+
+    <label for="invYear">Year</label>
+    <input type="number" name="inv_year" id="invYear" required readonly value="<%= locals.inv_year %>">
+
+    <label for="invPrice">Price</label>
+    <input type="number" name="inv_price" id="invPrice" required readonly value="<%= locals.inv_price %>">
+
+    <span>Confirm Deletion - The delete is permanent.</span>
+    <button type="submit" >Delete Vehicle</button>
+    <input type="hidden" name="inv_id" readonly <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+    <% } %>>
+</form>

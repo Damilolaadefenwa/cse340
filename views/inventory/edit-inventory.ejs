@@ -1,6 +1,8 @@
-<!--WK04-A: Building the ADD INVENTORY FORM UI 
- This file display the FORM to admin-user to add a
- vehicle items into the database. Apply the Stickiness
+<!--WK04-A: Building the UPDATE INVENTORY FORM UI 
+ This file display the FORM to admin-user to update/edit
+ vehicle items from the database. It's also apply the Stickiness
+ and an inactive submition button if no new data is enter through
+ the javascript.
 -->
 
 <!-- Display Title -->
@@ -23,12 +25,8 @@
     <% } 
 %>
 
-<!--Add-Inventory Form -->
+<!--Edit-Inventory Form -->
 <form action="/inv/update" method="post" class="login-form" id="updateForm">
-    <label  for="classificationList">Classification</label>
-    <%- classificationSelect %>
-    <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>" <% } %>>
-
     <label for="invMake">Make</label>
     <input type="text" name="inv_make" id="invMake" required value="<%= locals.inv_make %>">
 
@@ -61,3 +59,7 @@
     <% } %>>
 </form>
 <script src="/js/inv-update.js"></script>
+
+<!-- <label  for="classificationList">Classification</label>
+    <%#- classificationSelect %>
+    <input type="hidden" name="inv_id" <%# if(locals.inv_id) { %> value="<%#= locals.inv_id %>" <%# } %>> -->
