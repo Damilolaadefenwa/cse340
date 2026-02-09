@@ -27,6 +27,10 @@
 
 <!--Edit-Inventory Form -->
 <form action="/inv/update" method="post" class="login-form" id="updateForm">
+    <label  for="classificationList">Classification</label>
+    <%- classificationSelect %>
+    <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>" <% } %>>
+
     <label for="invMake">Make</label>
     <input type="text" name="inv_make" id="invMake" required value="<%= locals.inv_make %>">
 
@@ -60,6 +64,3 @@
 </form>
 <script src="/js/inv-update.js"></script>
 
-<!-- <label  for="classificationList">Classification</label>
-    <%#- classificationSelect %>
-    <input type="hidden" name="inv_id" <%# if(locals.inv_id) { %> value="<%#= locals.inv_id %>" <%# } %>> -->
