@@ -144,6 +144,29 @@ Util.checkJWTToken = (req, res, next) => {
 
 
 /* ****************************************
+ * WK05-Assignment
+ * Check Account Type (Authorization)
+ * ************************************ */
+Util.checkAccountType = (req, res, next) => {
+  //check user is logged-in(locals.loggedin set by checkJWTToken function)
+  if (res.locals.loggedin) {
+    const account_type = res.locals.accountData.account_type
+    // Check account type is authorized and allow access
+    if (account_type == "Employee" || account_type == "Admin") {
+      next() 
+    } else {
+      req.flash("notice", "You do not have permission to access this area.")
+      return res.redirect("/account/login")
+    }
+  } else {
+    //Block guests/guessing
+    req.flash("notice", "Please log in.")
+    return res.redirect("/account/login")
+  }
+}
+
+
+/* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
  * General Error Handling

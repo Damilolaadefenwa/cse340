@@ -26,23 +26,32 @@ router.get("/detail/:invId", utilities.handleErrors(invController.buildByInvId))
 router.get("/trigger-error", utilities.handleErrors(invController.triggerError));
 
 //WK04-A: Registering the Management route
-// 1. Route to build management view
-router.get("/", utilities.handleErrors(invController.buildManagement));
+// 1. Route to build Inventory Management view
+// Wk05-Assign.- Adding restriction function
+router.get("/",
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.buildManagement));
 
 // 2a. The route to display the "Add-classification Form"
-router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification));
+router.get("/add-classification",
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.buildAddClassification));
 // 2b. The route to process the data in the "Add-classification" Form
 router.post(
   "/add-classification",
+  utilities.checkAccountType,
   invValidate.classificationRules(),
   invValidate.checkClassificationData,
   utilities.handleErrors(invController.addClassification)
 );
 // 3a. The route to display the "Add-Inventory Form".
-router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory));
+router.get("/add-inventory",
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.buildAddInventory));
 // 3b. The route to process the data in the "Add-Inventory" Form.
 router.post(
   "/add-inventory",
+  utilities.checkAccountType,
   invValidate.inventoryRules(),
   invValidate.checkInventoryData,
   utilities.handleErrors(invController.addInventory)
@@ -51,21 +60,33 @@ router.post(
 // WK05-A.... 
 // 1.The route to process the inventory by classification
 // in the management view, So that the Javascript we added can work
-router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON));
 
 // 2a. Route to build the edit inventory view
 // The :inv_id is a parameter that holds the ID of the car that will be edited
-router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
+// adding a restriction function
+router.get("/edit/:inv_id",
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.editInventoryView)
+);
 // 2b. Route to handle the incoming request
 router.post("/update/",
+  utilities.checkAccountType,
   invValidate.inventoryRules(),
   invValidate.checkUpdateData,
   utilities.handleErrors(invController.updateInventory)
-)
+);
 
 // 3a. The Route to build the delete-confirmation view page
-router.get("/delete/:inv_id", utilities.handleErrors(invController.buildDeleteView))
+// adding a restriction function
+router.get("/delete/:inv_id",
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.buildDeleteView)
+);
 // 3b. The Route to process the delete request
-router.post("/delete", utilities.handleErrors(invController.deleteInventory))
+router.post("/delete",
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.deleteInventory)
+);
 
 module.exports = router;

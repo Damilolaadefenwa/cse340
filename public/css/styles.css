@@ -55,16 +55,24 @@ body {
 
 #top-header a {
   text-decoration: none;
-  color: var(--text-dark);
+  color:#0303cf ;
 }
 
+/* WK05-Assign: HEADER WELCOME & LOGOUT */
 #tools a {
   text-transform: uppercase;
   font-size: 0.95rem;
+  color: #0303cf;
+}
+
+#tools {
+  display: flex;
+  gap: 15px;
+  /* Adding space btw Wel.& Logout */
+  align-items: center;
 }
 
 /* The Navigation - Black bar */
-
 #nav-list {
   background-color: #333;
   list-style: none;
