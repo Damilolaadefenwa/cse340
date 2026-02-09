@@ -551,6 +551,81 @@ label[for="classificationList"] {
   /* Changes to red on hover for attention */
 }
 
+/* =========================================
+   Wk05: ASSIGN.
+   ========================================= */
+.admin-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-left: 5px solid #333;
+}
+
+/* 1. Container: minimal padding, full width */
+.account-update-container {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* 2. Forms: Stack visually, remove default browser margins */
+.update-form,
+.password-form {
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  /* Spacing between the two forms */
+}
+
+/* 3. Inputs: Full width for easy tapping on phones */
+.account-update-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* 4. Labels: Block display ensures they sit ABOVE the input */
+.account-update-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 5. Info Box: Distinct styling for the password note */
+.info-box {
+  background-color: #e3f2fd;
+  border-left: 5px solid #2196F3;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* 6. Buttons: Full width on mobile for easy thumb reach */
+.account-update-container button {
+  width: 100%;
+  padding: 15px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.account-update-container button:hover {
+  background-color: #004494;
+}
+
+
 
 /* ============================ */
 /* WK04-A MOBILE SCREENS ADJUSTMENT    */
@@ -656,6 +731,20 @@ label[for="classificationList"] {
   .login-form {
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+   /* WK05--UPDATE FORM STYLE  */
+  /* 1. Constrain width so forms don't look stretched on big screens */
+  .account-update-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    /* Center the container */
+  }
+  
+  /* 2. Buttons: Return to a normal button size */
+  .account-update-container button {
+    width: auto;
+    padding: 10px 30px;
   }
   
 }
