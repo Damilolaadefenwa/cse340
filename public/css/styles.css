@@ -351,7 +351,7 @@ body {
 .notice{
   font-family: var(--myfont);
   font-style: italic;
-  color: rgb(232, 5, 5);
+  color: rgb(20, 5, 232);
 }
 
 /* LOGIN FORM STYLE  */
@@ -539,7 +539,7 @@ label[for="classificationList"] {
 
 /* 7. Styling for Action links (Edit/Delete) */
 #inventoryDisplay a {
-  color: #0056b3;
+  color: #31017e;
   text-decoration: none;
   font-weight: bold;
   margin-right: 10px;
@@ -552,7 +552,7 @@ label[for="classificationList"] {
 }
 
 /* =========================================
-   Wk05: ASSIGN.
+   Wk05: ASSIGN. STYLING
    ========================================= */
 .admin-section {
   margin-top: 20px;
@@ -595,7 +595,7 @@ label[for="classificationList"] {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
 }
 
 /* 5. Info Box: Distinct styling for the password note */
@@ -624,8 +624,6 @@ label[for="classificationList"] {
 .account-update-container button:hover {
   background-color: #004494;
 }
-
-
 
 /* ============================ */
 /* WK04-A MOBILE SCREENS ADJUSTMENT    */
