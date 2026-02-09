@@ -236,5 +236,24 @@ async function changePassword(req, res) {
   }
 }
 
+/* ****************************************
+ * WK05-ASSIGN: Process Logout
+ * ************************************ */
+async function accountLogout(req, res) {
+  res.clearCookie("jwt") //DeletING the cookie named 'jwt'
+  req.flash("notice", "You have been logged out.") // Letting the user know
+  res.redirect("/") //Sending them to the Home view
+}
 
-module.exports = { buildLogin, buildRegister, processRegister, processLogin, buildAccountManagement, buildAccountUpdateView, updateAccount, changePassword }
+
+module.exports = {
+  buildLogin,
+  buildRegister,
+  processRegister,
+  processLogin,
+  buildAccountManagement,
+  buildAccountUpdateView,
+  updateAccount,
+  changePassword,
+  accountLogout
+}
