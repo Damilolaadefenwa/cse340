@@ -40,5 +40,29 @@ router.get("/",
   utilities.handleErrors(accountController.buildAccountManagement)
 )
 
+//WK05-ASSIGN:
+ //1. Route to build the account update view
+router.get("/update/:accountId", 
+  utilities.checkLogin, // Ensuring they are logged in!
+  utilities.handleErrors(accountController.buildAccountUpdateView)
+)
+
+//2. Route to handle the account update
+router.post("/update", 
+  utilities.checkLogin,
+  regValidate.updateAccountRules(), // Using the new rules
+  regValidate.checkUpdateUserData,  // Using the new check function
+  utilities.handleErrors(accountController.updateAccount)
+)
+
+//3. Route to handle the password change
+router.post("/change-password", 
+  utilities.checkLogin,
+  regValidate.changePasswordRules(), // Using password rules
+  regValidate.checkPasswordData,     // Reusing checkRegData logic
+  utilities.handleErrors(accountController.changePassword)
+)
+
+
 // Instruction 6: Export the router for use elsewhere
 module.exports = router;
