@@ -21,6 +21,8 @@ const accountRoute = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
 //Wk05
 const cookieParser = require("cookie-parser")
+//WKO6: FINAL ENHANCEMENT
+const reviewRoute = require("./routes/reviewRoute")
 
 
 /* ***********************
@@ -75,7 +77,9 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
 //3.  Account route -Wk03
 app.use("/account", accountRoute)
-//4. File Not Found Route - must be last route in list WK04
+//4.  Review route - Wk06
+app.use("/review", reviewRoute)
+//5. File Not Found Route - must be last route in list WK04
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
