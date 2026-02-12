@@ -1,6 +1,7 @@
 /* ******************************************
  * This landing page file for setting the connection to the database
  * It is not view but used for establish a pool for interaction.
+ * I rebuilt another database on the 12/2/2026
 *******************************************/
 
 
