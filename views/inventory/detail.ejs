@@ -12,5 +12,52 @@
 %>
 
        
-<!-- To Display the HTML(UI) built through the utilities/index.js -->
+<!-- To Display the HTML(UI) grid built through the utilities/index.js -->
 <%- detailHtml %>
+
+<!--WK06 FINAL ENHANCEMENT: Displaying The Customer Reviews" section-->
+<div id="reviews">
+    <h2>Customer Reviews</h2>
+
+    <% if (locals.loggedin) { %>
+        <form action="/review/add" method="post" class="review-form">
+            <fieldset>
+                <legend>Add a Review</legend>
+                <input type="hidden" name="inv_id" value="<%= inv_id %>">
+                <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+
+                <label for="review_text">Your Review:</label>
+                <textarea id="review_text" name="review_text" rows="4" required></textarea>
+
+                <button type="submit">Submit Review</button>
+            </fieldset>
+        </form>
+        <% } else { %>
+            <p>You must <a href="/account/login">login</a> to write a review.</p>
+        <% } 
+    %>
+
+    <ul class="review-list">
+        <% if (reviews && reviews.length> 0) { %>
+            <% reviews.forEach(function(review) { %>
+                <li>
+                    <div class="review-card">
+                        <strong><%= review.account_firstname %></strong> wrote on
+                        <%= new Date(review.review_date).toLocaleDateString("en-US", { year: 'numeric' , month: 'long' , day: 'numeric' }) %>:
+                        <hr>
+                        <p class="review-text">"<%= review.review_text %>"</p>
+
+                        <% if (locals.loggedin && (locals.accountData.account_id===review.account_id || locals.accountData.account_type==='Admin' )) { %>
+                            <div class="review-actions">
+                                <a href="/review/edit/<%= review.review_id %>" class="btn-edit">Edit</a>
+                                <a href="/review/delete/<%= review.review_id %>"class="btn-delete">Delete</a>
+                            </div>
+                        <% } %>
+                    </div>
+                </li>
+            <% }) %>
+        <% } else { %>
+            <p>Be the first to write a review!</p>
+        <% } %>
+    </ul>
+</div>

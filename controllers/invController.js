@@ -6,6 +6,7 @@
 
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
+const reviewModel = require("../models/review-model")
 
 const invCont = {}
 
@@ -36,8 +37,11 @@ invCont.buildByClassificationId = async function (req, res, next) {
  *  a specific vehicle and Build inventory item detail view
  * ************************** */
 invCont.buildByInvId = async function (req, res, next) {
-  const inv_id = req.params.invId
+  const inv_id = parseInt(req.params.invId)
   const data = await invModel.getInventoryByInvId(inv_id)
+  // Get the Review:WK06 Final enhancement
+  const reviews = await reviewModel.getReviewsByInventoryId(inv_id)
+
   const detailHtml = await utilities.buildVehicleDetail(data)
   let nav = await utilities.getNav()
   
@@ -46,6 +50,8 @@ invCont.buildByInvId = async function (req, res, next) {
       title: data.inv_make + " " + data.inv_model,
       nav,
       detailHtml,
+      reviews, //passing the reviews to the view
+      inv_id: data.inv_id  //this will be use for the review form
     })
   } else {
     // If no car found, move to error handler
