@@ -20,7 +20,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
   let nav = await utilities.getNav()
 
   //WK03-A Checking if data exists before getting the name
-  let className = "Unknown"
+  let className = "Unclassified"
   if (data.length > 0) {
     className = data[0].classification_name
   }
